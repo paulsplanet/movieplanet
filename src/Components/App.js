@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Navigation from "Components/Router";
+import GlobalStyles from "Components/GlobalStyles";
 
 
 
@@ -8,6 +9,7 @@ class App extends Component {
     return (
       <>
         <Navigation />
+        <GlobalStyles />
       </>)
   }
 }
