@@ -1,5 +1,6 @@
 const Home = function() {
-    console.log("Hello");
+    // console.log("I'm checking console.");
     return "Home"
 }
+
 export default Home;
