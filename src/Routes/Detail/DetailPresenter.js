@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Loader from "Components/Loader";
 import noPoster from "Assets/noPosterSmall.png";
+import Helmet from "react-helmet";
 
 const Container = styled.div`
     height: calc(100vh - 50px);
@@ -44,7 +45,7 @@ const Cover = styled.div`
 
 const Data = styled.div`
     width: 65%;
-    margin-left: 10px
+    margin-left: 30px
 `;
 
 const Title = styled.h3`
@@ -62,15 +63,24 @@ const Divider = styled.span`
 `;
 
 const Overview = styled.p`
-    font-size: 12px;
+    font-size: 16px;
     opacity: 0.7;
     line-height: 1.5;
     width: 70%;
 `;
 
 const DetailPresenter = ({ result, loading, error }) => 
-    loading ? ( <Loader /> ) : (
+    loading ? ( 
+        <>
+            <Helmet>
+                <title>Loading | MoviePlanet</title>
+            </Helmet>
+            <Loader />
+        </> ) : (
         <Container>
+            <Helmet>
+                <title>{result.original_title ? result.original_title : result.original_name} | MoviePlanet</title>
+            </Helmet>
             <Backdrop bgImage={`https://image.tmdb.org/t/p/original${result.backdrop_path}`} />
             <Content>
                 <Cover bgImage={result.poster_path ? `https://image.tmdb.org/t/p/original${result.poster_path}` : noPoster}/>
