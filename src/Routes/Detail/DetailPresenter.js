@@ -38,7 +38,7 @@ const Content = styled.div`
 `;
 
 const Cover = styled.div`
-    width: 35%;
+    width: 30%;
     height: 100%;
     background-image: url(${props => props.bgImage});
     background-position: center center;
@@ -73,7 +73,7 @@ const Overview = styled.p`
 `;
 
 const Video = styled.iframe`
-    width: 750px;
+    width: 825px;
     height: 500px;
 `;
 
