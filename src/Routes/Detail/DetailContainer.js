@@ -20,7 +20,8 @@ export default class extends React.Component{
         const { 
             match: { 
                 params: { id } 
-            }, history: { push },    
+            }, 
+            history: { push },    
         } = this.props;
         const { isMovie } = this.state;
         const parsedId = parseInt(id);

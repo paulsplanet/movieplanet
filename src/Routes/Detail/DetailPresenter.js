@@ -4,6 +4,9 @@ import styled from "styled-components";
 import Loader from "Components/Loader";
 import noPoster from "Assets/noPosterSmall.png";
 import Helmet from "react-helmet";
+import StarScore from "Components/StarScore";
+import ImbdLogo from "../../Assets/imbd.png";
+
 
 const Container = styled.div`
     height: calc(100vh - 50px);
@@ -69,6 +72,23 @@ const Overview = styled.p`
     width: 70%;
 `;
 
+const Video = styled.iframe`
+    width: 750px;
+    height: 500px;
+`;
+
+const Imbd = styled.a`
+    display: inline-block;
+    height: 21px;
+    width: 42px;
+    background: url(${ImbdLogo});
+    background-size: cover;
+    border-radius: 4px;
+    background-position: center center;
+    vertical-align: -4px;
+`;
+
+
 const DetailPresenter = ({ result, loading, error }) => 
     loading ? ( 
         <>
@@ -94,8 +114,18 @@ const DetailPresenter = ({ result, loading, error }) =>
                         <Item>{result.genres && 
                             result.genres.map((genre, index) => index === result.genres.length - 1 ? genre.name : `${genre.name} / `)} 
                         </Item>
+                        <Divider>&#07;</Divider>
+                        <StarScore score={result.vote_average} /> 
+                        {result.original_title ? (
+                            <><Divider>&#07;</Divider> 
+                            <Imbd href={`https://www.imdb.com/title/${result.imdb_id}`} target={"_blank"}/></>) : 
+                            (<></>)}
                     </ItemContainer>
                     <Overview>{result.overview}</Overview>
+                    <ItemContainer>
+                        {result.videos.results[0] === undefined ? (<></>) :(
+                        <Video src={`https://www.youtube.com/embed/${result.videos.results[0].key}`} ></Video>)  }   
+                    </ItemContainer>
                 </Data>
             </Content>
         </Container>
