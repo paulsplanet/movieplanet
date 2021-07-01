@@ -20,4 +20,6 @@ create Movie App by using React.
 - [ ] Movie Detail
 - [ ] Search (Movie, TV)
 
+## Preview:
 
+Try it on [netlify] (https://distracted-yonath-a65aca.netlify.app)

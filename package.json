@@ -35,7 +35,7 @@
       "react-app/jest"
     ]
   },
-  "homepage": "https://paulsplanet.github.io/movieplanet",
+  "homepage": "https://distracted-yonath-a65aca.netlify.app",
   "browserslist": {
     "production": [
       ">0.2%",
